@@ -1,4 +1,12 @@
-# Contexto
+# Proyecto Final Henry - Flujos Migratorios
+
+## Grupo 10:
+- ### [Laura Lozano](https://github.com/LLozanoBaron)
+- ### [Guillermo Jara](https://github.com/GLJaraBarth)
+- ### [Pablo Santisteban](https://github.com/polsantis)
+- ### [Cristian Torres](https://github.com/cristian-torres-ds)
+
+## Contexto
 
 Fenómenos como la migración, traen consigo transformaciones sociales y económicas a nivel mundial. Comprendiendo los cambios de escala, las tendencias emergentes y la evolución de las variables demográficas, entenderemos mejor los cambios del mundo en que vivimos y podremos planificar mejor el futuro.
 Entre 1990 y 2020, el número estimado de migrantes ha aumentado de 128 millones a 281 millones en estas tres décadas.
@@ -9,20 +17,55 @@ Por todo esto, nuestro Cliente, nos encomendó realizar un análisis pormenoriza
 
 ![Remesas](src/Remesas.png)
 
-# Objetivos
+## Objetivos
 
 -	Analizar los flujos migratorios actuales para identificar nuevos actores.
 -	Predecir flujos migratorios con la intención de identificar nuevos actores. 
 -	Analizar el negocio del movimiento de remesas, principalmente del top 5 de países receptores, y como se ve afectado por variables macroeconómicas.
 -	Identificar los países más rentables como así también los potenciales para el negocio.
 
-# Alcance
+## Alcance
 
 El proyecto será limitado al top 5 de países receptores de remesas y su desarrollo en los últimos 10 años, pudiéndose incorporar al análisis algún país que surja como nuevo actor como resultado del análisis de los flujos migratorios, y tomando solo en consideración las variables macroeconómicas.
 Dejaremos fuera del alcance otras razones que produzcan flujos migratorios, como ser conflictos bélicos, desastres naturales, etc.
 Estas otras razones, como hacerlo extensivo a un mayor número de países, podría ser parte de la continuidad del proyecto de acuerdo con sus resultados.
 
-# Key Performance Indicators (KPIs)
+## Metodologías:
+- Scrum Diario: División de tareas y seguimiento.
+- Daily Meeting Mentor: Follow up, avances y dudas.
+
+## Herramientas
+- Slack
+- Ganttpro
+- Google: Drive, Meets, Calendar.
+
+## Stack Tecnológico
+- Python
+- MySQL
+- AWS Suite:
+    - IAM
+    - Lambda
+    - Amazon EventBridge
+    - Amazon S3 (Simple Storage System)
+    - EC2
+    - Amazon Rds (Managed Relational Database Service)
+    - Amazon QuickSight
+
+## Fuentes de Datos
+
+- [Banco Mundial](https://datos.bancomundial.org/)
+- [Knomad.org](https://www.knomad.org/)
+- [Organization for Economic Co-operation and Development](https://www.oecd.org/)
+
+## Data Sets:
+
+- Inflación países
+- Migración Neta
+- PIB Países
+- Inward Remittance Flows
+- Outward Remittance Flows
+
+## Key Performance Indicators (KPIs)
 
 - Tasa Anual de Remesas TAR (%) = ((Volumen U$S Año[1] - Volumen U$S Año[0])/ Volumen U$S Año[1]) x 100
 
@@ -40,16 +83,12 @@ Muestra variaciones en el volumen de las remesas hacia un país por su porcentua
 
 Muestra variaciones de el volumen de las remesas hacia un país respecto a su PBI.
 
+## Recorrido de los datos
 
+![Alt text](image-1.png)
 
+Amazon [Event Bridge](https://aws.amazon.com/es/eventbridge/) se encarga de activar periódica y automáticamente un pipeline, comenzando por unas funciones [Amazon Lambda](https://aws.amazon.com/es/lambda/).
 
+Estas funciones Lambda escritas en python corren en una Máquina Virtual [Amazon EC2](https://aws.amazon.com/es/ec2/), y se encargan de descargar los Data Sets a usar, chequear actualizaciones, almacenarlos en un Data Lake [Amazon S3](https://aws.amazon.com/es/s3/), realizar transformaciones y finalmente cargarlos a un Data Warehouse [Amazon RDS](https://aws.amazon.com/es/rds/) (MySQL).
 
-
-
-# Proyecto Final Henry - Flujos Migratorios
-
-### Grupo 10:
-- [Laura Lozano](https://github.com/LLozanoBaron)
-- [Guillermo Jara](https://github.com/GLJaraBarth)
-- [Pablo Santisteban](https://github.com/polsantis)
-- [Cristian Torres](https://github.com/cristian-torres-ds)
+Finalmente hacemos uso de [Amazon Quicksight](https://aws.amazon.com/es/quicksight/) para analizar los datos y realizar modelos de ML (Machine Learning) de forecasting.

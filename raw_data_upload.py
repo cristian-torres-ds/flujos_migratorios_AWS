@@ -1,6 +1,9 @@
 import json
 import boto3
 import requests
+import pandas as pd
+from io import StringIO
+from io import BytesIO
 
 
 # Configura las credenciales de AWS
@@ -32,7 +35,15 @@ def lambda_handler(event, context):
     
         if response.status_code == 200:
             # Subir el archivo CSV al bucket de S3
-            s3_client.put_object(Body=response.content, Bucket=bucket_name, Key=keys[i])
+            objeto_antiguo = s3_client.get_object(Bucket=bucket_name, Key=keys[i])
+            data_antigua = objeto_antiguo['Body'].read()
+            df_antiguo = pd.read_excel(BytesIO(data_antigua))
+
+            data_nueva = s3_client.get_object(Body=response.content)
+            df_nuevo = pd.read_excel(BytesIO(data_nueva))
+
+            if df_nuevo.equals(df_antiguo) == False:
+                s3_client.put_object(Body=response.content, Bucket=bucket_name, Key=keys[i])
             print("Archivo CSV subido exitosamente a S3")
         else:
             print("Error al descargar el archivo CSV")
