@@ -15,6 +15,10 @@ Entre muchas otras cosas, los datos existentes indican un aumento global de las 
 Las remesas son transferencias de dinero o en especie que los migrantes hacen directamente a sus familias o comunidades en los países de origen.
 Por todo esto, nuestro Cliente, nos encomendó realizar un análisis pormenorizado de este fenómeno y del mercado del negocio de envío internacional de dinero.
 
+### **[Video Promocional](https://www.youtube.com/watch?v=vB51LimDHIw)**
+
+<br>
+
 ![Remesas](src/Remesas.png)
 
 ## Objetivos
