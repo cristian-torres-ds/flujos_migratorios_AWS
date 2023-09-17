@@ -95,7 +95,9 @@ Amazon [Event Bridge](https://aws.amazon.com/es/eventbridge/) se encarga de acti
 
 Estas funciones Lambda escritas en python corren en una Máquina Virtual [Amazon EC2](https://aws.amazon.com/es/ec2/), y se encargan de descargar los Data Sets a usar, chequear actualizaciones, almacenarlos en un Data Lake [Amazon S3](https://aws.amazon.com/es/s3/), realizar transformaciones y finalmente cargarlos a un Data Warehouse [Amazon RDS](https://aws.amazon.com/es/rds/) (MySQL).
 
-Luego hacemos uso de [Amazon Quicksight](https://aws.amazon.com/es/quicksight/) para generar un dashboard y poder analizar los datos
+Se puede observar la automatización del proceso en este [VIDEO](https://youtu.be/9mpBlvI8HgI).
+
+Luego hacemos uso de [Amazon Quicksight](https://aws.amazon.com/es/quicksight/) para generar un dashboard y poder analizar los datos.
 
 Finalmente volvemos a hacer uso de Quicksight para realizar un modelo de ML (Machine Learning) de forecasting.
 
@@ -104,6 +106,8 @@ Usamos un algoritmo de predicción llamado BIFOCAL (CALibrated BI-FOrest archite
 El primero es un árbol bien generalizado con una predicción pobre para filtrar anomalías, que se corrige con el segundo árbol que es más preciso.
 
 Este método de forecasting es más robusto que los métodos usados comunmente.
+
+<br>
 
 ![Alt text](src/image-2.png)
 
