@@ -2,7 +2,7 @@ import pymysql
 
 endpoint = "database-migraciones.c5vthlbc6wtm.us-east-1.rds.amazonaws.com"
 username = "admin"
-password = "seguridad10PUNTOS"
+password = "*************"
 database_name = "migraciones"
 
 connection = pymysql.connect(host=endpoint, user=username,

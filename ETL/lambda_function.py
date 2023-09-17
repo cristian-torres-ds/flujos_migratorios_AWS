@@ -6,8 +6,8 @@ from io import BytesIO
 def lambda_handler(event, context):
     
     # Configura las credenciales de AWS
-    aws_access_key = 'AKIA2YCFLUEZZYHQZS57'
-    aws_secret_key = '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'
+    aws_access_key = '*************'
+    aws_secret_key = '*************'
     region_name = 'us-east-1'  # Cambia esto a tu región
     
     # Configura el nombre del bucket de S3 y la ruta dentro del bucket
